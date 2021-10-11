@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hridoy_app/homepage.dart';
+import 'package:hridoy_app/loginpage.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,13 +12,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Material(
-        child: Center(
-          child: Container(
-            child: Text("This is my first App"),
-          ),
-        ),
-      ),
+      themeMode: ThemeMode.light,
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      darkTheme: ThemeData(brightness: Brightness.dark),
+      routes: {
+        "/": (context) => LoginPage(),
+        "/home": (context) => HomePage(),
+        "/login": (context) => LoginPage(),
+      },
     );
   }
 }
